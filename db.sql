@@ -531,12 +531,12 @@ INSERT INTO knowledge ([name], [user_id]) VALUES ('VPM', 4);
 INSERT INTO knowledge ([name], [user_id]) VALUES ('Intercollegiate Athletics', 5);
 INSERT INTO knowledge ([name], [user_id]) VALUES ('Medical Nutrition Therapy', 1);
 
-INSERT INTO degree (institute_name, [user_id], country, [name]) VALUES ('Dabvine', 2, 'China', 'doctorado');
+INSERT INTO degree (institute_name, [user_id], country, [name], from_sunedu) VALUES ('Dabvine', 2, 'China', 'doctorado', 1);
 INSERT INTO degree (institute_name, [user_id], country, [name]) VALUES ('Riffwire', 3, 'Switzerland', 'doctorado');
 INSERT INTO degree (institute_name, [user_id], country, [name]) VALUES ('Photojam', 4, 'China', 'titulo');
 INSERT INTO degree (institute_name, [user_id], country, [name]) VALUES ('Gigaclub', 5, 'China', 'meAStria');
 INSERT INTO degree (institute_name, [user_id], country, [name]) VALUES ('Trudoo', 1, 'Norway', 'doctorado');
-INSERT INTO degree (institute_name, [user_id], country, [name]) VALUES ('Livefish', 2, 'China', 'meAStria');
+INSERT INTO degree (institute_name, [user_id], country, [name], from_sunedu) VALUES ('Livefish', 2, 'China', 'meAStria', 1);
 INSERT INTO degree (institute_name, [user_id], country, [name]) VALUES ('Thoughtblab', 3, 'Armenia', 'titulo');
 INSERT INTO degree (institute_name, [user_id], country, [name]) VALUES ('Thoughtmix', 4, 'Indonesia', 'meAStria');
 INSERT INTO degree (institute_name, [user_id], country, [name]) VALUES ('Youopia', 5, 'Japan', 'meAStria');

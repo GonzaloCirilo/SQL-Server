@@ -1,18 +1,21 @@
 USE [cas]
 GO
 
-CREATE FUNCTION fn_number_of_applicants(
+CREATE OR ALTER FUNCTION fn_number_of_applicants(
 @@jobOfferId int)
 RETURNS INT
 AS
 BEGIN
 	DECLARE @count INT
-	SET @count = (SELECT COUNT(jo.id) FROM [job_offer] jo JOIN user_apply ua ON jo.id = ua.job_offer_id WHERE jo.id = @@jobOfferId GROUP BY jo.id)
+	SET @count = (SELECT COUNT(jo.id) FROM job_offer jo JOIN user_apply ua ON jo.id = ua.job_offer_id WHERE jo.id = @@jobOfferId GROUP BY jo.id)
 	RETURN @count
 END	
 GO
 
-CREATE FUNCTION fn_n_of_hours(
+SELECT dbo.fn_number_of_applicants(3)
+Go
+
+CREATE OR ALTER FUNCTION fn_n_of_hours(
 @@userId INT)
 RETURNS INT
 AS
@@ -23,10 +26,19 @@ BEGIN
 END
 GO
 
-CREATE FUNCTION fn_n_knowledge(
+SELECT dbo.fn_n_of_hours(2)
+GO
+
+CREATE OR ALTER FUNCTION fn_n_knowledge(
 @@userId INT)
 RETURNS INT
 AS
 BEGIN
-	RETURN 0
+	DECLARE @nKnowledge INT
+	SET @nKnowledge = (SELECT COUNT(k.id) FROM users u JOIN knowledge k ON u.id = k.[user_id] WHERE u.id = @@userId GROUP BY u.id)
+	RETURN @nKnowledge
 END
+GO
+
+SELECT dbo.fn_n_knowledge(1)
+GO
