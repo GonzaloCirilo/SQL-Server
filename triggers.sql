@@ -31,5 +31,5 @@ DECLARE @insertedId INT
 END
 GO
 INSERT INTO [user_apply] (job_offer_id,[user_id],[application_date]) VALUES
-(5,2,GETDATE())
+(5,6,GETDATE())
 GO

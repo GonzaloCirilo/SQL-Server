@@ -1,0 +1,17 @@
+USE cAS
+GO
+BACKUP DATABASE cAS
+TO DISK = 'C:\Backups\cas_full.bak'
+WITH FORMAT;
+
+GO
+
+BACKUP DATABASE cAS
+TO DISK = 'C:\Backups\cas_diff1.bak'
+WITH DIFFERENTIAL;
+GO
+
+BACKUP DATABASE cAS
+TO DISK = 'C:\Backups\cas_diff2.bak'
+WITH DIFFERENTIAL;
+GO
