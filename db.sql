@@ -56,8 +56,6 @@ CREATE TABLE driving_category (
   CONSTRAINT [driving_category_driving_clASs] FOREIGN KEY ([driving_clASs_id]) REFERENCES driving_clASs ([id])
 )   ;
 
-CREATE INDEX [i_driving_category_driving_clASs] ON driving_category ([driving_clASs_id]);
-
 CREATE TABLE document_type (
   [id] INT NOT NULL,
   [name] VARCHAR(255) DEFAULT NULL,
@@ -80,7 +78,6 @@ CREATE TABLE province (
   CONSTRAINT [province_department] FOREIGN KEY ([department_id]) REFERENCES department ([id])
 )   ;
 
-CREATE INDEX [i_province_department] ON province ([department_id]);
 
 CREATE TABLE district (
   [id] INT NOT NULL,
@@ -91,8 +88,6 @@ CREATE TABLE district (
  ,
   CONSTRAINT [district_province] FOREIGN KEY ([province_id]) REFERENCES province ([id])
 )   ;
-
-CREATE INDEX [i_district_province] ON district ([province_id]);
 
 CREATE TABLE disability_type (
   [id] INT NOT NULL IDENTITY,
@@ -157,8 +152,6 @@ CREATE TABLE [audit] (
   CONSTRAINT [users_fk] FOREIGN KEY ([user_id]) REFERENCES [users] ([id])
 )  ;
 
-CREATE INDEX [user_idxa] ON [audit] ([user_id]);
-
 
 CREATE TABLE background_experience (
   [id] INT NOT NULL IDENTITY,
@@ -174,8 +167,6 @@ CREATE TABLE background_experience (
   CONSTRAINT [user_background_experience] FOREIGN KEY ([user_id]) REFERENCES [users] ([id])
 )  ;
 
-CREATE INDEX [user_background_experience] ON background_experience ([user_id]);
-
 CREATE TABLE course (
   [id] INT NOT NULL IDENTITY,
   [name] VARCHAR(255) DEFAULT NULL,
@@ -190,8 +181,6 @@ CREATE TABLE course (
  ,
   CONSTRAINT [user_course] FOREIGN KEY ([user_id]) REFERENCES [users] ([id])
 )   ;
-
-CREATE INDEX [user_course] ON course ([user_id]);
 
 CREATE TABLE degree (
   [id] INT NOT NULL IDENTITY,
@@ -211,7 +200,6 @@ CREATE TABLE degree (
   CONSTRAINT [user_studies] FOREIGN KEY ([user_id]) REFERENCES [users] ([id])
 )   ;
 
-CREATE INDEX [i_user_studies] ON degree ([user_id]);
 
 
 CREATE TABLE job_offer (
@@ -247,7 +235,6 @@ CREATE TABLE knowledge (
   CONSTRAINT [user_knowledge] FOREIGN KEY ([user_id]) REFERENCES [users] ([id])
 )   ;
 
-CREATE INDEX [user_knowledge] ON knowledge ([user_id]);
 
 
 CREATE TABLE [role] (
@@ -268,7 +255,6 @@ CREATE TABLE work_reference (
   CONSTRAINT [user_work_references] FOREIGN KEY ([user_id]) REFERENCES [users] ([id])
 )   ;
 
-CREATE INDEX [user_work_references_idx] ON work_reference ([user_id]);
 
 CREATE TABLE user_apply (
   [id] INT NOT NULL IDENTITY,
@@ -288,8 +274,6 @@ CREATE TABLE user_apply (
   CONSTRAINT [user_apply_user] FOREIGN KEY ([user_id]) REFERENCES [users] ([id])
 )   ;
 
-CREATE INDEX [user_apply_job_offer] ON user_apply ([job_offer_id]);
-CREATE INDEX [user_apply_user] ON user_apply ([user_id]);
 
 
 CREATE TABLE user_roles (
@@ -302,8 +286,6 @@ CREATE TABLE user_roles (
   CONSTRAINT [user_roles_user] FOREIGN KEY ([user_id]) REFERENCES [users] ([id])
 )   ;
 
-CREATE INDEX [user_roles_role] ON user_roles ([role_id]);
-CREATE INDEX [user_roles_user] ON user_roles ([user_id]);
 
 INSERT INTO department VALUES (1,'AMAZONAS'),(2,'ANCASH'),(3,'APURIMAC'),(4,'AREQUIPA'),(5,'AYACUCHO'),(6,'CAJAMARCA'),(7,'CALLAO'),(8,'CUSCO'),(9,'HUANCAVELICA'),(10,'HUANUCO'),(11,'HUANUCO '),(12,'ICA'),(13,'JUNIN'),(14,'LA LIBERTAD'),(15,'LAMBAYEQUE'),(16,'LIMA'),(17,'LORETO'),(18,'MADRE DE DIOS'),(19,'MOQUEGUA'),(20,'PASCO'),(21,'PIURA'),(22,'PUNO'),(23,'SAN MARTIN'),(24,'TACNA'),(25,'TUMBES'),(26,'UCAYALI');
 
